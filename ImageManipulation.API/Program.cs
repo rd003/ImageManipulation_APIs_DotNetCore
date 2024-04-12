@@ -1,5 +1,6 @@
 using ImageManipulation.Data.Models;
 using ImageManipulation.Data.Repositories;
+using ImageManipulation.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddTransient<ApplicationDbContext>();
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddTransient<IFileUploadService, FileUploadService>();
 
 var app = builder.Build();
 
