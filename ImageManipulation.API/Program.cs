@@ -18,7 +18,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddTransient<ApplicationDbContext>();
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
-builder.Services.AddTransient<IFileUploadService, FileUploadService>();
+builder.Services.AddTransient<IFileService, FileService>();
 
 var app = builder.Build();
 

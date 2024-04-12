@@ -3,15 +3,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace ImageManipulation.Data.Services;
 
-public interface IFileUploadService
+public interface IFileService
 {
     Task<string> SaveFileAsync(IFormFile imageFile, string[] allowedFileExtensions);
     void DeleteFile(string fileNameWithExtension);
 }
 
-public class FileUploadService(IWebHostEnvironment environment) : IFileUploadService
+public class FileService(IWebHostEnvironment environment) : IFileService
 {
-    private readonly IWebHostEnvironment _environment = environment;
 
     public async Task<string> SaveFileAsync(IFormFile imageFile, string[] allowedFileExtensions)
     {
@@ -20,7 +19,7 @@ public class FileUploadService(IWebHostEnvironment environment) : IFileUploadSer
             throw new ArgumentNullException(nameof(imageFile));
         }
 
-        var contentPath = _environment.ContentRootPath;
+        var contentPath = environment.ContentRootPath;
         var path = Path.Combine(contentPath, "Uploads");
         // path = "c://projects/productminiapi/uploads" ,not exactly, but something like that
 
@@ -51,7 +50,7 @@ public class FileUploadService(IWebHostEnvironment environment) : IFileUploadSer
         {
             throw new ArgumentNullException(nameof(fileNameWithExtension));
         }
-        var contentPath = _environment.ContentRootPath;
+        var contentPath = environment.ContentRootPath;
         var path = Path.Combine(contentPath, $"Uploads", fileNameWithExtension);
 
         if (!File.Exists(path))
