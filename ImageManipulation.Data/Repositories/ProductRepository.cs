@@ -5,7 +5,7 @@ namespace ImageManipulation.Data.Repositories;
 
 public interface IProductRepository
 {
-    Task<Product> CreateProductAsync(Product product);
+    Task<Product> AddProductAsync(Product product);
     Task<Product> UpdateProductAsync(Product product);
     Task<IEnumerable<Product>> GetProductsAsync(Product product);
     Task<Product?> FindProductByIdAsync(int id);
@@ -13,7 +13,7 @@ public interface IProductRepository
 }
 public class ProductRepository(ApplicationDbContext context) : IProductRepository
 {
-    public async Task<Product> CreateProductAsync(Product product)
+    public async Task<Product> AddProductAsync(Product product)
     {
         context.Products.Add(product);
         await context.SaveChangesAsync();
