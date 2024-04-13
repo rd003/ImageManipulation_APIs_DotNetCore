@@ -7,7 +7,7 @@ public interface IProductRepository
 {
     Task<Product> AddProductAsync(Product product);
     Task<Product> UpdateProductAsync(Product product);
-    Task<IEnumerable<Product>> GetProductsAsync(Product product);
+    Task<IEnumerable<Product>> GetProductsAsync();
     Task<Product?> FindProductByIdAsync(int id);
     Task DeleteProductAsync(Product product);
 }
@@ -39,7 +39,7 @@ public class ProductRepository(ApplicationDbContext context) : IProductRepositor
         return product;
     }
 
-    public async Task<IEnumerable<Product>> GetProductsAsync(Product product)
+    public async Task<IEnumerable<Product>> GetProductsAsync()
     {
         return await context.Products.ToListAsync();
     }

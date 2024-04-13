@@ -25,6 +25,7 @@ public class ProductUpdateDTO
     [MaxLength(30)]
     public string? ProductName { get; set; }
 
+    [Required]
     [MaxLength(50)]
     public string? ProductImage { get; set; }
 

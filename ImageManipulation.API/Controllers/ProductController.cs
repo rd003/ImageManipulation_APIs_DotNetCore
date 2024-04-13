@@ -10,7 +10,6 @@ namespace ImageManipulation.API.Controllers;
 [ApiController]
 public class ProductController(IFileService fileService, IProductRepository productRepo, ILogger<ProductController> logger) : ControllerBase
 {
-
     [HttpPost]
     public async Task<IActionResult> CreateProduct([FromForm] ProductDTO productToAdd)
     {
@@ -114,8 +113,6 @@ public class ProductController(IFileService fileService, IProductRepository prod
     }
 
     // api/products/1
-
-
     [HttpGet("{id}")]
     public async Task<IActionResult> GetProduct(int id)
     {
@@ -127,17 +124,14 @@ public class ProductController(IFileService fileService, IProductRepository prod
         return Ok(product);
     }
 
-    // api/products
-    public async Task<IActionResult> GetProducts(int id)
-    {
-        var product = await productRepo.FindProductByIdAsync(id);
-        if (product == null)
-        {
-            return StatusCode(StatusCodes.Status404NotFound, $"Product with id: {id} does not found");
-        }
-        return Ok(product);
-    }
 
+    // api/products
+    [HttpGet]
+    public async Task<IActionResult> GetProducts()
+    {
+        var products = await productRepo.GetProductsAsync();
+        return Ok(products);
+    }
 
 
 }
