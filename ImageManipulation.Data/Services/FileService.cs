@@ -21,7 +21,7 @@ public class FileService(IWebHostEnvironment environment) : IFileService
 
         var contentPath = environment.ContentRootPath;
         var path = Path.Combine(contentPath, "Uploads");
-        // path = "c://projects/productminiapi/uploads" ,not exactly, but something like that
+        // path = "c://projects/ImageManipulation.Ap/uploads" ,not exactly, but something like that
 
         if (!Directory.Exists(path))
         {
