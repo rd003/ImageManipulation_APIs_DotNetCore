@@ -36,7 +36,7 @@ public class FileService(IWebHostEnvironment environment) : IFileService
         }
 
         // generate a unique filename
-        var fileName = $"{Guid.NewGuid().ToString()} {ext}";
+        var fileName = $"{Guid.NewGuid().ToString()}{ext}";
         var fileNameWithPath = Path.Combine(path, fileName);
         using var stream = new FileStream(fileNameWithPath, FileMode.Create);
         await imageFile.CopyToAsync(stream);
