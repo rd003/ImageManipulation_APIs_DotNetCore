@@ -31,7 +31,7 @@ eg:
     {
       "id": 3,
       "productName": "Product 31",
-      "productImage": "4944dbdb-b3ec-49d8-81ba-c870d0edcf0b .jpg"
+      "productImage": "4944dbdb-b3ec-49d8-81ba-c870d0edcf0b.jpg"
     }
   ```
 
@@ -53,7 +53,7 @@ eg:
     {
       "id": 1,
       "productName": "Product 1",
-      "productImage": "989f0a66-f65c-49d1-8e23-2f9ca24b9ecb .jpg"
+      "productImage": "989f0a66-f65c-49d1-8e23-2f9ca24b9ecb.jpg"
     }
   ```
 
@@ -75,7 +75,7 @@ eg:
   {
   "id": 3,
   "productName": "Product 31",
-  "productImage": "4944dbdb-b3ec-49d8-81ba-c870d0edcf0b .jpg"
+  "productImage": "4944dbdb-b3ec-49d8-81ba-c870d0edcf0b.jpg"
   }
 
 - DELETE: api/products/{id:INTEGER}
